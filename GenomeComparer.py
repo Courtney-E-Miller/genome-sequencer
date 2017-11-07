@@ -17,18 +17,18 @@ def sequenceMaker(fileName):
             genomeSpecies.extend(line)                                              
     return genomeSpecies
 
+def returnNotMatches(a, b):
+    return [[x for x in a if x not in b], [x for x in b if x not in a]]
+
 
 def compare(firstFile, secondFile):
     count = 0
     sequence1 = sequenceMaker(firstFile)
     sequence2 = sequenceMaker(secondFile)
-    for [i] in sequence1:
-        if sequence1[i] != sequence2[i]:
-            count = count + 1
-    return count
+    differenes = returnNotMatches(sequence1, sequence2)
+    print(differences)
         
         
-
 
 
 compare("clipOfAcythosiphonDNA.txt", "clipOfAdinetaDNA.txt")
